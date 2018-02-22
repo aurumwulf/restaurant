@@ -14,4 +14,9 @@ class Restaurant < Sinatra::Base
   get "/contactus" do
     erb :contactus
   end
+
+  post "/buildyourown" do
+    Ingredient.create(name: params[:name], spread: params[:spread])
+    redirect "/buildyourown"
+  end
 end
