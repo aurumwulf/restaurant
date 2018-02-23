@@ -8,6 +8,7 @@ class Restaurant < Sinatra::Base
   end
 
   get "/buildyourown" do
+    @ingredients = Ingredient.all
     erb :buildyourown
   end
 
@@ -16,7 +17,7 @@ class Restaurant < Sinatra::Base
   end
 
   post "/buildyourown" do
-    Ingredient.create(name: params[:name], spread: params[:spread])
+    Ingredient.create(name: params[:ingredient], spread: params[:spread])
     redirect "/buildyourown"
   end
 end

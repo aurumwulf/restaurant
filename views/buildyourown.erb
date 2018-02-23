@@ -7,9 +7,31 @@
   <div class="ui form">
   <div class="field">
     <label>Tell us how you want the ingredients spread:</label>
-    <textarea rows="2"></textarea>
+    <textarea rows="2" name="spread"></textarea>
   </div>
   <div class="ui container">
     <button class="ui green basic button" type="submit">Submit</button>
   </div>
 </form>
+<h1>Current Ingredients</h1>
+<div class="ui cards">
+  <% @ingredients.each do |ingredient| %>
+    <div class="card">
+      <div class="content">
+        <div class="header"><%= ingredient.name %></div>
+        <div class="meta">Ingredient</div>
+        <div class="description">
+          <%= ingredient.spread %>
+        </div>
+      </div>
+      <div class="ui bottom attached button">
+      <i class="add icon"></i>
+      Edit Ingredient
+      </div>
+      <div class="ui bottom attached button">
+      <i class="add icon"></i>
+      Delete Ingredient
+      </div>
+    </div>
+  <% end %>
+</div>
