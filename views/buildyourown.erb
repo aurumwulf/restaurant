@@ -29,9 +29,11 @@
         >
         Edit
         </a>
-        <button class="ui red basic button">Delete</button>
+        <form action="/buildyourown/<%= ingredient.id %>" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <button class="ui red basic button">Delete</button>
+        </form>
       </div>
-    
     </div>
   <% end %>
 </div>

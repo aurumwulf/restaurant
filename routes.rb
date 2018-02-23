@@ -21,6 +21,11 @@ class Restaurant < Sinatra::Base
     erb :edit
   end
 
+  delete "/buildyourown/:id" do
+    Ingredient.find(params[:id]).destroy
+    redirect "/buildyourown"
+  end
+
   put "/buildyourown/:id" do
     ingredient = Ingredient.find(params[:id])
     ingredient.update(name: params[:name], spread: params[:spread])
