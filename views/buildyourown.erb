@@ -2,12 +2,12 @@
 <form class="ui form" method="POST" action="/buildyourown">
   <div class="field">
     <label>Ingredient</label>
-    <input type="text" name="ingredient" placeholder="Ingredient Name">
+    <input type="text" required name="name" placeholder="Ingredient Name">
   </div>
   <div class="ui form">
   <div class="field">
     <label>Tell us how you want the ingredients spread:</label>
-    <textarea rows="2" name="spread"></textarea>
+    <textarea rows="2" required name="spread"></textarea>
   </div>
   <div class="ui container">
     <button class="ui green basic button" type="submit">Submit</button>
@@ -19,19 +19,19 @@
     <div class="card">
       <div class="content">
         <div class="header"><%= ingredient.name %></div>
-        <div class="meta">Ingredient</div>
+        <div class="meta"></div>
         <div class="description">
           <%= ingredient.spread %>
         </div>
+        <a
+          class="ui olive basic button" 
+          href="/buildyourown/<%= ingredient.id %>/edit"
+        >
+        Edit
+        </a>
+        <button class="ui red basic button">Delete</button>
       </div>
-      <div class="ui bottom attached button">
-      <i class="add icon"></i>
-      Edit Ingredient
-      </div>
-      <div class="ui bottom attached button">
-      <i class="add icon"></i>
-      Delete Ingredient
-      </div>
+    
     </div>
   <% end %>
 </div>

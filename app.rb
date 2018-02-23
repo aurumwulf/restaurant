@@ -13,5 +13,6 @@ class Restaurant < Sinatra::Base
   enable :sessions
   set :views, Proc.new { File.join(root, "views") }
   register Sinatra::ActiveRecordExtension
+  use Rack::MethodOverride
 end
 

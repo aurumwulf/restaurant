@@ -1,0 +1,16 @@
+<h1>Edit Your Entry</h1>
+<form class="ui form" method="POST" action="/buildyourown/<%= @ingredients.id %>">
+  <input type="hidden" name="_method" value="PUT">
+  <div class="field">
+    <label>Ingredient</label>
+    <input type="text" required name="name" value="<%= @ingredients.name %>" />
+  </div>
+  <div class="ui form">
+  <div class="field">
+    <label>Tell us how you want the ingredients spread:</label>
+    <textarea rows="2" required name="spread"><%= @ingredients.spread %></textarea>
+  </div>
+  <div class="ui container">
+    <button class="ui green basic button" type="submit">Submit</button>
+  </div>
+</form>

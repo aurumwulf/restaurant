@@ -16,8 +16,20 @@ class Restaurant < Sinatra::Base
     erb :contactus
   end
 
-  post "/buildyourown" do
-    Ingredient.create(name: params[:ingredient], spread: params[:spread])
+  get "/buildyourown/:id/edit" do
+    @ingredients = Ingredient.find(params[:id])
+    erb :edit
+  end
+
+  put "/buildyourown/:id" do
+    ingredient = Ingredient.find(params[:id])
+    ingredient.update(name: params[:name], spread: params[:spread])
     redirect "/buildyourown"
   end
+
+  post "/buildyourown" do
+    Ingredient.create(name: params[:name], spread: params[:spread])
+    redirect "/buildyourown"
+  end
+
 end
